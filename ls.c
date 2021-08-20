@@ -24,9 +24,6 @@ void print_entries(int direction, int file_count,
   printf("\n");
 }
 
-/*
- * file OR directory - same thing
- */
 void get_file_stats(char *filename, struct stat *stbuf) {
   // man 2 stat to look up details
   stat(filename, stbuf);
@@ -58,10 +55,10 @@ void parse_flags(int argc, char **argv, int *direction) {
 }
 
 int main(int argc, char **argv) {
-  if (DEBUG_ON)
+  if (DEBUG_ON) {
     printf("DEBUG MODE: ON\n");
-  if (DEBUG_ON)
     printf("--------------\n");
+  }
 
   int direction = 0; // normal=0, reverse=1
   int flag;
