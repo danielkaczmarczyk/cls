@@ -1,40 +1,28 @@
+#include "helpers.h"
+#include <dirent.h>
+#include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <stdarg.h>
-#include <dirent.h>
-#include "helpers.h"
-
-#define DIR_N 0
-#define DIR_R 1
-
-#define true 1
-#define false 0
+#include <unistd.h>
 
 #define DEBUG_ON 1
 
-void print_entries(int direction, int file_count, struct dirent **directory_entries) {
-  if (direction == DIR_N) {
-    int i = 0;
-    while (i < file_count) {
-      char *entry = directory_entries[i]->d_name;
-        if (!starts_with(entry, '.')) {
-          printf("%s ", entry); 
-        }
-      //printf("%hhu\n", directory_entries[file_count]->d_type);
-      i++;
+void print_entries(int direction, int file_count,
+                   struct dirent **directory_entries) {
+  int i = 0;
+  while (i < file_count) {
+    char *entry_name = directory_entries[i]->d_name;
+    if (!starts_with(entry_name, '.')) {
+      printf("%s ", entry_name);
     }
-    printf("\n");
-  } else if (direction == DIR_R) {
-      while(file_count--) {
-        printf("%s ", directory_entries[file_count]->d_name);
-      }
-      printf("\n");
+    // printf("%hhu\n", directory_entries[file_count]->d_type);
+    i++;
   }
+  printf("\n");
 }
 
 /*
@@ -57,21 +45,24 @@ void parse_flags(int argc, char **argv, int *direction) {
   printf("parsing flags...\n");
   while ((flag = getopt(argc, argv, "r")) != -1) {
     printf("flag: %d\n", flag);
-    switch(flag) {
-      case 'r':
-        if (DEBUG_ON) printf("setting direction: reverse\n");
-        *direction = 1;
-        break;
-      default:
-        printf("usage: -[r]\n");
+    switch (flag) {
+    case 'r':
+      if (DEBUG_ON)
+        printf("setting direction: reverse\n");
+      *direction = 1;
+      break;
+    default:
+      printf("usage: -[r]\n");
     }
   }
   printf("parsing flags complete...\n");
 }
 
 int main(int argc, char **argv) {
-  if (DEBUG_ON) printf("DEBUG MODE: ON\n");
-  if (DEBUG_ON) printf("--------------\n");
+  if (DEBUG_ON)
+    printf("DEBUG MODE: ON\n");
+  if (DEBUG_ON)
+    printf("--------------\n");
 
   int direction = 0; // normal=0, reverse=1
   int flag;
@@ -79,13 +70,14 @@ int main(int argc, char **argv) {
   printf("parsing flags...\n");
   while ((flag = getopt(argc, argv, "r")) != -1) {
     printf("flag: %d\n", flag);
-    switch(flag) {
-      case 'r':
-        if (DEBUG_ON) printf("setting direction: reverse\n");
-        direction = 1;
-        break;
-      default:
-        printf("usage: -[r]\n");
+    switch (flag) {
+    case 'r':
+      if (DEBUG_ON)
+        printf("setting direction: reverse\n");
+      direction = 1;
+      break;
+    default:
+      printf("usage: -[r]\n");
     }
   }
   printf("parsing flags complete...\n");
@@ -100,7 +92,7 @@ int main(int argc, char **argv) {
   // if it does not, then it must be a directory name
   if (argc > 1) {
     if (!starts_with("-", argv[1][0])) {
-      directory = argv[1]; 
+      directory = argv[1];
     }
   }
 
@@ -116,4 +108,3 @@ int main(int argc, char **argv) {
   }
   exit(EXIT_SUCCESS);
 }
-
