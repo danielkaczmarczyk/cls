@@ -24,17 +24,6 @@ void print_entries(int direction, int file_count,
   printf("\n");
 }
 
-void get_file_stats(char *filename, struct stat *stbuf) {
-  // man 2 stat to look up details
-  stat(filename, stbuf);
-
-  printf("no argument specified. acting on cwd.\n");
-  printf("%llu\n", stbuf->st_ino);
-  printf("%u\n", stbuf->st_uid);
-  printf("%u\n", stbuf->st_gid);
-  printf("%u\n", stbuf->st_rdev);
-}
-
 // make it accept a pointer to array to the config
 void parse_flags(int argc, char **argv, int *direction) {
   int flag;
