@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -6,22 +7,18 @@
 #include <sys/types.h>
 #include <stdarg.h>
 #include <dirent.h>
+#include "helpers.c"
 
 #define DIR_N 0
 #define DIR_R 1
 
 #define true 1
 #define false 0
-#define bool int
 
 #define DEBUG_ON 1
 
 #define _for(x) for (int i = 0; i < x ; i++) {
 #define __for(x) for (int i = x; i > 0; i--) {
-
-bool starts_with(const char *string, const char c) {
-  return string[0] == c;
-}
 
 void print_entries(int direction, int file_count, struct dirent **directory_entries) {
   if (direction == DIR_N) {
