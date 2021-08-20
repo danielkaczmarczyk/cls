@@ -7,7 +7,7 @@
 #include <sys/types.h>
 #include <stdarg.h>
 #include <dirent.h>
-#include "helpers.c"
+#include "helpers.h"
 
 #define DIR_N 0
 #define DIR_R 1
@@ -16,9 +16,6 @@
 #define false 0
 
 #define DEBUG_ON 1
-
-#define _for(x) for (int i = 0; i < x ; i++) {
-#define __for(x) for (int i = x; i > 0; i--) {
 
 void print_entries(int direction, int file_count, struct dirent **directory_entries) {
   if (direction == DIR_N) {
@@ -120,18 +117,3 @@ int main(int argc, char **argv) {
   exit(EXIT_SUCCESS);
 }
 
-/* 
- * TODO
- *
- * I want a nicer way to log debug messages.
- * How do I pass a varied amount of arguments to a function? I could write a logger
- * function that takes a template string and an amount of arguments to be passed to printf.
- *
- * definition of done:
- * - [ ] implement flag handling
- *  - [x] r
- *  - [ ] d (for debug)
- *  - [ ] a
- *  - [ ] l
- *  - [ ] h
- */
