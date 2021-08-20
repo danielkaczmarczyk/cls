@@ -22,12 +22,11 @@ void print_entries(int direction, int file_count,
   while (i < file_count) {
     char *entry_name = directory_entries[i]->d_name;
     if (!starts_with(entry_name, '.')) {
-      printf("%s ", entry_name);
+      printf("%s \n", entry_name);
     }
     // printf("%hhu\n", directory_entries[file_count]->d_type);
     i++;
   }
-  printf("\n");
 }
 
 #endif

@@ -10,12 +10,12 @@ int main(int argc, char **argv) {
   if (DEBUG_ON) {
     printf("DEBUG MODE: ON\n");
     printf("--------------\n");
+    printf("parsing flags...\n");
   }
 
   int direction = 0; // normal=0, reverse=1
   int flag;
 
-  printf("parsing flags...\n");
   while ((flag = getopt(argc, argv, "r")) != -1) {
     printf("flag: %d\n", flag);
     switch (flag) {
@@ -28,16 +28,16 @@ int main(int argc, char **argv) {
       printf("usage: -[r]\n");
     }
   }
-  printf("parsing flags complete...\n");
+  if (DEBUG_ON) {
+    printf("parsing flags complete...\n");
+    printf("argc: %d\n", argc);
+    printf("files: \n\n");
+  }
 
-  // get the directory entries
   struct dirent **directory_entries;
   int file_count;
   char *directory = ".";
-  printf("argc: %d\n", argc);
 
-  // if the first argument starts with a `-`, then directory stays as default
-  // if it does not, then it must be a directory name
   if (argc > 1) {
     if (!starts_with("-", argv[1][0])) {
       directory = argv[1];
