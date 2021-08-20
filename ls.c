@@ -1,47 +1,10 @@
 #include "helpers.h"
-#include <dirent.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include <unistd.h>
 
 #define DEBUG_ON 1
-
-void print_entries(int direction, int file_count,
-                   struct dirent **directory_entries) {
-  int i = 0;
-  while (i < file_count) {
-    char *entry_name = directory_entries[i]->d_name;
-    if (!starts_with(entry_name, '.')) {
-      printf("%s ", entry_name);
-    }
-    // printf("%hhu\n", directory_entries[file_count]->d_type);
-    i++;
-  }
-  printf("\n");
-}
-
-// make it accept a pointer to array to the config
-void parse_flags(int argc, char **argv, int *direction) {
-  int flag;
-  printf("parsing flags...\n");
-  while ((flag = getopt(argc, argv, "r")) != -1) {
-    printf("flag: %d\n", flag);
-    switch (flag) {
-    case 'r':
-      if (DEBUG_ON)
-        printf("setting direction: reverse\n");
-      *direction = 1;
-      break;
-    default:
-      printf("usage: -[r]\n");
-    }
-  }
-  printf("parsing flags complete...\n");
-}
 
 int main(int argc, char **argv) {
   if (DEBUG_ON) {
