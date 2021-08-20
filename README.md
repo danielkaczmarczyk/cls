@@ -10,3 +10,13 @@ To compile, simply run
 make
 ```
 
+That will produce a executable binary, called `ls`
+
+## TODO, also known as "Features List"
+
+- [ ] list files 
+- [ ] enable reverse listing
+- [ ] enable showing hidden files
+- [ ] show sizes of the files
+- [ ] show ownership of files
+- [ ] show permissions
