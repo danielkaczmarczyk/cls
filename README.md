@@ -14,7 +14,7 @@ That will produce a executable binary, called `ls`
 
 ## TODO, also known as "Features List"
 
-- [ ] list files 
+- [x] list files 
 - [ ] enable reverse listing
 - [ ] enable showing hidden files
 - [ ] show sizes of the files
