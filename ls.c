@@ -17,16 +17,17 @@ int main(int argc, char **argv) {
   int show_hidden = 0;
   int flag;
 
-  while ((flag = getopt(argc, argv, "r")) != -1) {
+  while ((flag = getopt(argc, argv, "ra")) != -1) {
     printf("flag: %d\n", flag);
     switch (flag) {
     case 'r':
-      if (DEBUG_ON)
-        printf("setting direction: reverse\n");
       direction = 1;
       break;
+    case 'a':
+      show_hidden = 1;
+      break;
     default:
-      printf("usage: -[r]\n");
+      printf("usage: -[ra]\n");
     }
   }
   if (DEBUG_ON) {
