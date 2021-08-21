@@ -16,8 +16,8 @@ That will produce a executable binary, called `ls`
 
 - [x] list files 
 - [x] show sizes of the files
-- [ ] enable reverse listing
+- [x] enable reverse listing
 - [x] enable showing hidden files
-- [ ] show permissions
+- [x] show permissions
 - [ ] make it print pretty
 - [ ] organize the code

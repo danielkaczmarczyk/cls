@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
     printf("parsing flags...\n");
   }
 
-  int direction = 0; // normal=0, reverse=1
+  int direction = 1; 
   int show_hidden = 0;
   int flag;
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
     printf("flag: %d\n", flag);
     switch (flag) {
     case 'r':
-      direction = 1;
+      direction = 0; // set direction to reverse
       break;
     case 'a':
       show_hidden = 1;
