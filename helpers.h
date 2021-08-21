@@ -7,22 +7,8 @@
 
 bool starts_with(const char *string, const char c) { return string[0] == c; }
 
-void get_file_stats(char *filename, struct stat *stbuf) {
-  stat(filename, stbuf);
-  printf("no argument specified. acting on cwd.\n");
-  printf("%llu\n", stbuf->st_ino);
-  printf("%u\n", stbuf->st_uid);
-  printf("%u\n", stbuf->st_gid);
-  printf("%u\n", stbuf->st_rdev);
-}
-
 void print_entries(int direction, int file_count,
                    struct dirent **directory_entries) {
-  /*
-   * i'm operating on them sequentially, so
-   * i can malloc just what is necessary for the
-   * given file struct for statbuf and free it after printing
-   */
   int i = 0;
   while (i < file_count) {
     struct stat stbuf;
