@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+
 #define DEBUG_ON 1
 
 int main(int argc, char **argv) {
@@ -12,6 +13,7 @@ int main(int argc, char **argv) {
     printf("--------------\n");
     printf("parsing flags...\n");
   }
+
 
   int direction = 1; 
   int show_hidden = 0;
@@ -30,6 +32,7 @@ int main(int argc, char **argv) {
       printf("usage: -[ra]\n");
     }
   }
+
   if (DEBUG_ON) {
     printf("parsing flags complete...\n");
     printf("argc: %d\n", argc);

@@ -19,5 +19,5 @@ That will produce a executable binary, called `ls`
 - [x] enable reverse listing
 - [x] enable showing hidden files
 - [x] show permissions
-- [ ] make it print pretty
+- [x] make it print pretty
 - [ ] organize the code
