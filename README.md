@@ -10,14 +10,8 @@ To compile, simply run
 make
 ```
 
-That will produce a executable binary, called `ls`
+That will produce a executable binary, called `ls` that lists files. It can
+accept a directory as the first argument or not, and optional flags.
 
-## TODO, also known as "Features List"
+Available flags are `r` for reverse ordering, and `a` for showing hidden files.
 
-- [x] list files 
-- [x] show sizes of the files
-- [x] enable reverse listing
-- [x] enable showing hidden files
-- [x] show permissions
-- [x] make it print pretty
-- [ ] organize the code

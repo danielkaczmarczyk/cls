@@ -43,7 +43,6 @@ void print_entries(bool going_up, int file_count,
 
     loop_controls(going_up, file_count, &done, &i);
 
-    // Permissions
     printf((S_ISDIR(stbuf.st_mode)) ? "d" : "-");
     printf((stbuf.st_mode & S_IRUSR) ? "r" : "-");
     printf((stbuf.st_mode & S_IWUSR) ? "w" : "-");

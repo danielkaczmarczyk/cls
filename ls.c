@@ -4,18 +4,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-
-#define DEBUG_ON 1
-
 int main(int argc, char **argv) {
-  if (DEBUG_ON) {
-    printf("DEBUG MODE: ON\n");
-    printf("--------------\n");
-    printf("parsing flags...\n");
-  }
-
-
-  int direction = 1; 
+  int direction = 1;
   int show_hidden = 0;
   int flag;
 
@@ -31,12 +21,6 @@ int main(int argc, char **argv) {
     default:
       printf("usage: -[ra]\n");
     }
-  }
-
-  if (DEBUG_ON) {
-    printf("parsing flags complete...\n");
-    printf("argc: %d\n", argc);
-    printf("files: \n\n");
   }
 
   struct dirent **directory_entries;
