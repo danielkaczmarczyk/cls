@@ -14,6 +14,7 @@ int main(int argc, char **argv) {
   }
 
   int direction = 0; // normal=0, reverse=1
+  int show_hidden = 0;
   int flag;
 
   while ((flag = getopt(argc, argv, "r")) != -1) {
@@ -50,9 +51,9 @@ int main(int argc, char **argv) {
     perror("scandir");
     exit(EXIT_FAILURE);
   } else {
-    print_entries(direction, file_count, directory_entries);
+    print_entries(direction, file_count, directory_entries, show_hidden);
     printf("\n");
     free(directory_entries);
+    exit(EXIT_SUCCESS);
   }
-  exit(EXIT_SUCCESS);
 }
